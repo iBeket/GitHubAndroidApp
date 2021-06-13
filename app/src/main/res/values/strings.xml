@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GitHub Application</string>
+    <string name="repo_button_text">Check Repository</string>
 </resources>
