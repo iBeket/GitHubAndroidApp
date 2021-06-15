@@ -53,11 +53,13 @@ class UserRepoAdapter(var list: MutableList<GitHubUserRepositoriesModel>, val co
                 val defaultBranch = customDialog.findViewById<TextView>(R.id.default_branch)
                 val watchers = customDialog.findViewById<TextView>(R.id.watchers)
                 val size = customDialog.findViewById<TextView>(R.id.size)
+                val description = customDialog.findViewById<TextView>(R.id.description)
                 val closeBtn = customDialog.findViewById<Button>(R.id.close_user_repo_button)
 
                 defaultBranch.text = model.defaultBranch
                 watchers.text = model.watchers.toString()
                 size.text = model.size.toString()
+                description.text = model.description
 
                 closeBtn.setOnClickListener {
                     customDialog.dismiss()

@@ -8,7 +8,8 @@ import com.example.githubapplication.api.models.GitHubUserRepositoriesModel
 
 class UserRepoDetailsViewModel(val gitHubUserRepo: GitHubRepositoryDetails) : ViewModel() {
 
-    private val _githubAccountRepo: MutableLiveData<MutableList<GitHubUserRepositoriesModel>> = MutableLiveData()
+    private val _githubAccountRepo: MutableLiveData<MutableList<GitHubUserRepositoriesModel>> =
+        MutableLiveData()
     val githubAccountRepo: LiveData<MutableList<GitHubUserRepositoriesModel>> = _githubAccountRepo
 
     fun getGithubAccountRepo(name: String) {
