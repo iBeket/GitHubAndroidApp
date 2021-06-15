@@ -9,7 +9,7 @@ import retrofit2.http.Path
 interface GitHubUserApiInterface {
 
     @GET("users/{username}")
-     fun getUserInfo(
+    fun getUserInfo(
         @Path("username") username: String
     ): Single<Response<GitHubUserModel>>
 }

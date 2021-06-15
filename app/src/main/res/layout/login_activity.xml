@@ -5,72 +5,82 @@
     android:background="@drawable/background_gradient">
 
     <RelativeLayout
-        android:id="@+id/user_info_layout"
+        android:id="@+id/login_info_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:paddingBottom="20dp">
 
         <RelativeLayout
-            android:id="@+id/imgUser"
+            android:id="@+id/img_github_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
+            android:scaleType="centerInside"
             android:background="@drawable/circle_border">
 
             <ImageView
-                android:id="@+id/avatar"
+                android:id="@+id/img_github"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_margin="9dp"
                 android:adjustViewBounds="true"
                 android:background="@drawable/circle"
                 android:padding="3dp"
+                android:src="@drawable/githublogo"
                 android:scaleType="centerInside" />
 
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/user_name"
+            android:id="@+id/info_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imgUser"
+            android:layout_below="@+id/img_github_layout"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15sp"
+            android:gravity="center"
             android:fontFamily="sans-serif-light"
             android:textColor="@color/white"
-            android:textSize="32sp" />
+            android:text="@string/logIn_text"
+            android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/company_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/user_name"
-            android:layout_centerHorizontal="true"
-            android:fontFamily="sans-serif"
-            android:textAllCaps="true"
-            android:textColor="@color/companyNameColor"
-            android:textSize="14sp" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/user_info_layout"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_below="@id/login_info_layout">
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:hint="@string/edit_text_login_hint"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:textColor="@color/companyNameColor"
+            android:background="@drawable/edit_text_shape"
+            android:inputType="text"/>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/view_user_repo_button"
+            android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
+            android:layout_marginBottom="80dp"
             android:layout_marginStart="50dp"
             android:layout_marginLeft="50dp"
-            android:layout_marginBottom="80dp"
             android:background="@drawable/button_shape"
-            android:text="@string/repo_button_text"
+            android:text="@string/logIn_button_text"
             android:textColor="@color/white"
             android:textSize="18sp" />
 

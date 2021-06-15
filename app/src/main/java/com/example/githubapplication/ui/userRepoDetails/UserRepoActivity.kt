@@ -1,9 +1,11 @@
 package com.example.githubapplication.ui.userRepoDetails
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.githubapplication.R
@@ -18,12 +20,19 @@ class UserRepoActivity : AppCompatActivity() {
     private var userRepoInfo: MutableList<GitHubUserRepositoriesModel> =
         mutableListOf<GitHubUserRepositoriesModel>()
     private lateinit var recyclerView: RecyclerView
+    private val sharedPrefFile = "sharedUserName"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_repo_details)
 
-        viewModel = ViewModelProviders.of(
+        val sharedPreferences: SharedPreferences = this.getSharedPreferences(
+            sharedPrefFile,
+            Context.MODE_PRIVATE
+        )
+        val userNameFormSharedPref: String = sharedPreferences.getString("userName", "").toString()
+
+        viewModel = ViewModelProvider(
             this, UserRepoDetailsViewModelFactory(
                 RepositoryUserRepoFactory.createGithubRepository()
             )
@@ -37,7 +46,7 @@ class UserRepoActivity : AppCompatActivity() {
         adapter = UserRepoAdapter(userRepoInfo, this)
         recyclerView.adapter = adapter
 
-        viewModel.getGithubAccountRepo("octocat")
+        viewModel.getGithubAccountRepo(userNameFormSharedPref)
 
         getUsersData()
     }
@@ -45,7 +54,7 @@ class UserRepoActivity : AppCompatActivity() {
     private fun getUsersData() {
 
         viewModel.githubAccountRepo.observe(this, Observer {
-           adapter?.setItemList(it)
+            adapter?.setItemList(it)
         })
         adapter?.notifyDataSetChanged()
     }
