@@ -6,15 +6,15 @@ import androidx.lifecycle.ViewModel
 import com.example.githubapplication.api.helper.GitHubRepositoryDetails
 import com.example.githubapplication.api.models.GitHubUserRepositoriesModel
 
-class UserRepoDetailsViewModel(val githubRepo: GitHubRepositoryDetails) : ViewModel() {
+class UserRepoDetailsViewModel(val gitHubUserRepo: GitHubRepositoryDetails) : ViewModel() {
 
-    private val _githubAccount: MutableLiveData<MutableList<GitHubUserRepositoriesModel>> = MutableLiveData()
-    val githubAccount: LiveData<MutableList<GitHubUserRepositoriesModel>> = _githubAccount
+    private val _githubAccountRepo: MutableLiveData<MutableList<GitHubUserRepositoriesModel>> = MutableLiveData()
+    val githubAccountRepo: LiveData<MutableList<GitHubUserRepositoriesModel>> = _githubAccountRepo
 
-    fun getGithubAccount(name: String) {
-        githubRepo.fetchGithubAccount(name)
+    fun getGithubAccountRepo(name: String) {
+        gitHubUserRepo.fetchGithubRepoAccount(name)
             .subscribe {
-                _githubAccount.postValue(it)
+                _githubAccountRepo.postValue(it)
             }
     }
 
