@@ -8,7 +8,7 @@ import io.reactivex.schedulers.Schedulers
 
 class GitHubRepositoryDetails(val githubApi: GitHubUserRepoApiInterface) {
 
-    fun fetchGithubAccount(name: String): Observable<MutableList<GitHubUserRepositoriesModel>> {
+    fun fetchGithubRepoAccount(name: String): Observable<MutableList<GitHubUserRepositoriesModel>> {
         return Observable.create { emitter ->
 
             githubApi.getUserInfoRepo(name)

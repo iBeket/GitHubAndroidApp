@@ -37,14 +37,14 @@ class UserRepoActivity : AppCompatActivity() {
         adapter = UserRepoAdapter(userRepoInfo, this)
         recyclerView.adapter = adapter
 
-        viewModel.getGithubAccount("octocat")
+        viewModel.getGithubAccountRepo("octocat")
 
         getUsersData()
     }
 
     private fun getUsersData() {
 
-        viewModel.githubAccount.observe(this, Observer {
+        viewModel.githubAccountRepo.observe(this, Observer {
            adapter?.setItemList(it)
         })
         adapter?.notifyDataSetChanged()

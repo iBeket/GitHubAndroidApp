@@ -2,4 +2,10 @@
     <string name="app_name">GitHub Application</string>
     <string name="repo_button_text">Check Repository</string>
     <string name="open_issues_text">Open issues:</string>
+    <string name="user_repositories">User Repositories</string>
+    <string name="repo_info">Repo Info</string>
+    <string name="default_branch">Default Branch:</string>
+    <string name="watchers">Watchers:</string>
+    <string name="size">Size:</string>
+    <string name="close_button_text">Close</string>
 </resources>
